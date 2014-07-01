@@ -23,6 +23,12 @@ class TwitterClientAdapterTest extends \PHPUnit_Framework_TestCase
         $this->twitterApiResponseFixture = new TwitterApiResponseFixture();
     }
 
+    public function testGetSetScreenName()
+    {
+        $this->twitterClientAdapter->setScreenName('test');
+        $this->assertEquals('test', $this->twitterClientAdapter->getScreenName());
+    }
+
     public function testGetSetTwitterClient()
     {
         $this->twitterClientAdapter->setTwitterClient($this->mockTwitterClient);

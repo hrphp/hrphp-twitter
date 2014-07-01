@@ -46,6 +46,7 @@ class Module
                     );
                     $twitterClient = new TwitterAPIExchange($settings);
                     $clientAdapter->setTwitterClient($twitterClient);
+                    $clientAdapter->setScreenName($sm->get('screen_name'));
                     return $clientAdapter;
                 }
         ));
