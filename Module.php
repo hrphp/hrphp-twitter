@@ -2,7 +2,6 @@
 
 namespace HrPhp\Twitter;
 
-use HrPhp\Twitter\TwitterClientAdapter;
 use Zend\Mvc\MvcEvent;
 use \TwitterAPIExchange;
 
