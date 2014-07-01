@@ -9,7 +9,7 @@
     "autoload": {
         "psr-0": {
             "HrPhp\\": "src/",
-            "HrPhp\\": "tests/"
+            "HrPhpTest\\": "tests/"
         }
     },
     "require": {
