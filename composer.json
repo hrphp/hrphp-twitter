@@ -1,0 +1,25 @@
+{
+    "name": "hrphp/hrphp-twitter",
+    "description": "Twitter Module",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "framework",
+        "zf2"
+    ],
+    "autoload": {
+        "psr-0": {
+            "HrPhp\\": "src/",
+            "HrPhp\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "~2.0",
+        "j7mbo/twitter-api-php": "dev-master"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "~1.5",
+        "phpunit/phpunit": "3.7.*"
+    }
+
+}
