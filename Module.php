@@ -1,8 +1,8 @@
 <?php
 
-namespace HrphpTwitter;
+namespace HrPhp\Twitter;
 
-use HrphpTwitter\Twitter\TwitterClientAdapter;
+use HrPhp\Twitter\TwitterClientAdapter;
 use Zend\Mvc\MvcEvent;
 use \TwitterAPIExchange;
 
@@ -33,10 +33,10 @@ class Module
     {
         return array(
             'invokables' => array(
-                    'HrphpTwitter\Twitter\TwitterFeedWrapper' => 'HrphpTwitter\Twitter\TwitterFeedWrapper',
+                    'HrPhp\Twitter\TwitterFeedWrapper' => 'HrPhp\Twitter\TwitterFeedWrapper',
             ),
             'factories' => array(
-                'HrphpTwitter\Twitter\TwitterClient' => function ($sm) {
+                'HrPhp\Twitter\TwitterClient' => function ($sm) {
                     $clientAdapter = new TwitterClientAdapter();
                     $settings = array(
                            'oauth_access_token' => $sm->get('config')['twitter']['oauth_access_token'],
