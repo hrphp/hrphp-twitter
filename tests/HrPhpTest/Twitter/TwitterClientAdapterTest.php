@@ -44,4 +44,15 @@ class TwitterClientAdapterTest extends \PHPUnit_Framework_TestCase
         $tweet = $this->twitterClientAdapter->getUserFeed();
         $this->assertEquals('Test tweet content', $tweet[0]->text);
     }
+
+    public function testGetUserFeedThrowsException()
+    {
+        $this->mockTwitterClient->expects($this->once())
+            ->method('performRequest')
+            ->will($this->returnValue('This is not json'));
+        $this->twitterClientAdapter->setTwitterClient($this->mockTwitterClient);
+        $this->setExpectedException('HrPhp\Exception\HrPhpException', 'Error parsing json: This is not json');
+        $this->twitterClientAdapter->getUserFeed();
+
+    }
 }

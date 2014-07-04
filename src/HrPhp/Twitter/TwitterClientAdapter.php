@@ -4,6 +4,7 @@ namespace HrPhp\Twitter;
 
 use \TwitterAPIExchange;
 use Zend\Json\Json;
+use HrPhp\Exception\HrPhpException;
 
 class TwitterClientAdapter
 {
@@ -55,7 +56,13 @@ class TwitterClientAdapter
         $this->twitterClient->setGetfield($getfield);
         $this->twitterClient->buildOauth($url, $requestMethod);
         $tweets = $this->twitterClient->performRequest();
-        $phpFeed = Json::decode($tweets, Json::TYPE_OBJECT);
+
+        try {
+            $phpFeed = Json::decode($tweets, Json::TYPE_OBJECT);
+        } catch (\Exception $ex) {
+            throw new HrPhpException("Error parsing json: {$tweets}");
+        }
+
         return $phpFeed;
     }
 }
