@@ -2,6 +2,7 @@
 
 namespace HrPhp\Twitter;
 
+use HrPhp\Twitter\Adapter\TwitterApiExchangeAdapter;
 use Zend\Mvc\MvcEvent;
 use \TwitterAPIExchange;
 
@@ -31,23 +32,21 @@ class Module
     public function getServiceConfig()
     {
         return array(
-            'invokables' => array(
-                    'HrPhp\Twitter\TwitterFeedWrapper' => 'HrPhp\Twitter\TwitterFeedWrapper',
-            ),
             'factories' => array(
-                'HrPhp\Twitter\TwitterClient' => function ($sm) {
-                    $clientAdapter = new TwitterClientAdapter();
+                'HrPhp\Twitter\Client' => function ($sm) {
                     $settings = array(
-                           'oauth_access_token' => $sm->get('config')['twitter']['oauth_access_token'],
-                           'oauth_access_token_secret' => $sm->get('config')['twitter']['oauth_access_token_secret'],
-                           'consumer_key' => $sm->get('config')['twitter']['consumer_key'],
-                           'consumer_secret' => $sm->get('config')['twitter']['consumer_secret']
+                        'oauth_access_token' => $sm->get('config')['twitter']['oauth_access_token'],
+                        'oauth_access_token_secret' => $sm->get('config')['twitter']['oauth_access_token_secret'],
+                        'consumer_key' => $sm->get('config')['twitter']['consumer_key'],
+                        'consumer_secret' => $sm->get('config')['twitter']['consumer_secret']
                     );
-                    $twitterClient = new TwitterAPIExchange($settings);
-                    $clientAdapter->setTwitterClient($twitterClient);
-                    $clientAdapter->setScreenName($sm->get('config')['twitter']['screen_name']);
-                    return $clientAdapter;
+                    $client = new TwitterAPIExchange($settings);
+                    $adapter = new TwitterApiExchangeAdapter($client);
+                    $service = new Service();
+                    $service->setAdapter($adapter);
+                    return new $service;
                 }
-        ));
+            )
+        );
     }
 }
