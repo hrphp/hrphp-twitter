@@ -3,7 +3,7 @@
 
 A Twitter module for use with [ZF2](http://framework.zend.com/).
 
-Use [Composer] to install this library. Edit your `composer.json` like so:
+Use [Composer](https://getcomposer.org/) to install this library. Edit your `composer.json` like so:
 ```json
 {
     "require": {
