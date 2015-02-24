@@ -1,25 +1,29 @@
 {
-    "name": "hrphp/hrphp-twitter",
-    "description": "Twitter Module",
-    "license": "BSD-3-Clause",
-    "keywords": [
-        "framework",
-        "zf2"
-    ],
-    "autoload": {
-        "psr-0": {
-            "HrPhp\\": "src/",
-            "HrPhpTest\\": "tests/"
-        }
-    },
-    "require": {
-        "php": ">=5.3.3",
-        "zendframework/zendframework": "~2.0",
-        "j7mbo/twitter-api-php": "dev-master"
-    },
-    "require-dev": {
-        "squizlabs/php_codesniffer": "~1.5",
-        "phpunit/phpunit": "3.7.*"
+  "name": "hrphp/hrphp-twitter",
+  "description": "A Twitter Module for ZF2",
+  "license": "MIT",
+  "keywords": [
+      "framework",
+      "zf2"
+  ],
+  "autoload": {
+      "psr-0": {
+          "HrPhp\\": "src/"
+      }
+  },
+  "autoload-dev": {
+    "psr-0": {
+      "HrPhpTest\\": "tests/"
     }
-
+  },
+  "require": {
+      "php": ">=5.4",
+      "zendframework/zendframework": "~2.0",
+      "j7mbo/twitter-api-php": "dev-master"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "~1.5",
+    "phpunit/phpunit": "~4.0",
+    "phing/phing": "~2.0"
+  }
 }
