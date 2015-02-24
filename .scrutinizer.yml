@@ -5,6 +5,6 @@ tools:
     php_analyzer: true
 filter:
     excluded_paths:
-        - 'config/*
+        - 'config/*'
         - 'tests/*'
         - 'vendor/*'
