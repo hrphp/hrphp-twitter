@@ -1,6 +1,0 @@
-<?php
-return [
-    'twitter' => [
-            "screen_name"=> "",
-        ],
-];

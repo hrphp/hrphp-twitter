@@ -5,7 +5,7 @@ namespace HrPhp\Twitter\Adapter;
 interface AdapterInterface
 {
     /**
-     * @param $screenName
+     * @param string $screenName
      * @return array
      * @throws \HrPhp\Exception\Exception
      */

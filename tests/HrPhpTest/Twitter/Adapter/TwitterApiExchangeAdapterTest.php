@@ -26,7 +26,7 @@ class TwitterApiExchangeAdapterTest extends \PHPUnit_Framework_TestCase
 
     public function testGetUserFeedThrowsException()
     {
-            $response = 'This is not json';
+        $response = 'This is not json';
         $this->twitterApiExchange->expects($this->once())
             ->method('performRequest')
             ->will($this->returnValue($response));

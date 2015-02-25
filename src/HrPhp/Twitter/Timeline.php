@@ -4,10 +4,20 @@ namespace HrPhp\Twitter;
 
 use HrPhp\Twitter\Adapter\AdapterInterface;
 
-class Service
+class Timeline
 {
     /**@var \HrPhp\Twitter\Adapter\AdapterInterface */
     private $adapter;
+
+    /**
+     * @param string $screenName
+     * @return array
+     * @throws \HrPhp\Exception\HrPhpException
+     */
+    public function get($screenName)
+    {
+        return $this->getAdapter()->getUserTimeline($screenName);
+    }
 
     /**
      * @param \HrPhp\Twitter\Adapter\AdapterInterface $adapter
