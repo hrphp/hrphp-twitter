@@ -33,15 +33,6 @@ class Module
     {
         return array(
             'factories' => array(
-                'TwitterApiExchange' => function ($sm) {
-                    $settings = array(
-                        'oauth_access_token' => $sm->get('config')['twitter']['oauth_access_token'],
-                        'oauth_access_token_secret' => $sm->get('config')['twitter']['oauth_access_token_secret'],
-                        'consumer_key' => $sm->get('config')['twitter']['consumer_key'],
-                        'consumer_secret' => $sm->get('config')['twitter']['consumer_secret']
-                    );
-                    return new TwitterAPIExchange($settings);
-                },
                 'TwitterApiExchangeAdapter' => function ($sm) {
                     $adaptee = $sm->get('TwitterApiExchange');
                     return new TwitterApiExchangeAdapter($adaptee);
