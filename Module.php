@@ -4,7 +4,6 @@ namespace HrPhp\Twitter;
 
 use HrPhp\Twitter\Adapter\TwitterApiExchangeAdapter;
 use Zend\Mvc\MvcEvent;
-use \TwitterAPIExchange;
 
 class Module
 {
@@ -33,10 +32,6 @@ class Module
     {
         return array(
             'factories' => array(
-                'TwitterApiExchangeAdapter' => function ($sm) {
-                    $adaptee = $sm->get('TwitterApiExchange');
-                    return new TwitterApiExchangeAdapter($adaptee);
-                },
                 'HrPhpTwitterTimeline' => function ($sm) {
                     $adapter = $sm->get('TwitterApiExchangeAdapter');
                     $service = new Timeline();
