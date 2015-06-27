@@ -27,18 +27,4 @@ class Module
             ),
         );
     }
-
-    public function getServiceConfig()
-    {
-        return array(
-            'factories' => array(
-                'HrPhpTwitterTimeline' => function ($sm) {
-                    $adapter = $sm->get('TwitterApiExchangeAdapter');
-                    $service = new Timeline();
-                    $service->setAdapter($adapter);
-                    return $service;
-                }
-            )
-        );
-    }
 }
